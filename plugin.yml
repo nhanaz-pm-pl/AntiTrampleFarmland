@@ -1,0 +1,9 @@
+---
+name: AntiTrampleFarmland
+version: 0.0.1
+main: NhanAZ\AntiTrampleFarmland\Main
+api: 4.0.0
+website: https://github.com/NhanAZ
+author: NhanAZ
+description: Farmland will not decay when trampled by any entity
+...
