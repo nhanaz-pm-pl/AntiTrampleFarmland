@@ -18,12 +18,14 @@ class Main extends PluginBase implements Listener {
 	public function onEntityTrampleFarmland(EntityTrampleFarmlandEvent $event): void {
 		$worldName = $event->getEntity()->getWorld()->getDisplayName();
 		$worlds = $this->getConfig()->get("worlds");
+
 		/** @phpstan-ignore-next-line */
-		$isBlacklist = match (strval($this->getConfig()->get("mode"))) {
+		$isBlacklisted = match (strval($this->getConfig()->get("mode"))) {
 			"blacklist" => true,
 			"whitelist" => false
 		};
-		if ($isBlacklist) {
+
+		if ($isBlacklisted) {
 			if (!in_array($worldName, $worlds)) {
 				$event->cancel();
 			}
