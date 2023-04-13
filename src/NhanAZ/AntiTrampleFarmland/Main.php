@@ -20,12 +20,12 @@ class Main extends PluginBase implements Listener {
 		$worlds = $this->getConfig()->get("worlds");
 
 		/** @phpstan-ignore-next-line */
-		$isBlacklisted = match (strval($this->getConfig()->get("mode"))) {
+		$isBlacklist = match (strval($this->getConfig()->get("mode"))) {
 			"blacklist" => true,
 			"whitelist" => false
 		};
 
-		if ($isBlacklisted) {
+		if ($isBlacklist) {
 			if (!in_array($worldName, $worlds)) {
 				$event->cancel();
 			}
